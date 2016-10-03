@@ -9,12 +9,12 @@
   "author": "Phil Schilter",
   "contributors": [
     {
-      name: "Phil Schilter",
-      email: "phil.schilter@gmail.com"
+      "name": "Phil Schilter",
+      "email": "phil.schilter@gmail.com"
     },
     {
-      name: "Roman Blum",
-      email: "rmnblm@gmail.com"
+      "name": "Roman Blum",
+      "email": "rmnblm@gmail.com"
     }
   ],
   "repository": {
@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/iphilgood/notes/issues"
   },
-  "license": "WTFPL"
+  "license": "WTFPL",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
