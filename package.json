@@ -1,0 +1,28 @@
+{
+  "name": "notes",
+  "version": "1.0.0",
+  "description": "Simple note taking app built with node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Phil Schilter",
+  "contributors": [
+    {
+      name: "Phil Schilter",
+      email: "phil.schilter@gmail.com"
+    },
+    {
+      name: "Roman Blum",
+      email: "rmnblm@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iphilgood/notes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iphilgood/notes/issues"
+  },
+  "license": "WTFPL"
+}
