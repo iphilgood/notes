@@ -4,7 +4,7 @@ module.exports.getNotes = function(req, res) {
   store.all(function(err, notes) {
     res.format({
         'text/html': function() {
-            res.render("notes/index", notes);
+            res.render("notes/index", { notes: notes });
         },
         'application/json': function() {
             res.send(notes);
