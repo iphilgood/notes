@@ -1,0 +1,78 @@
+{{!< default}}
+
+<h1 class="title">Edit Note</h1>
+
+<hr />
+
+<div class="content">
+  <form action="/edit/{{_id}}" method="post">
+    <div class="control is-horizontal">
+      <div class="control-label">
+        <label for="title" class="label">Title</label>
+      </div>
+      <div class="control">
+        <input class="input" type="text" name="title" id="title"
+        value="{{title}}" placeholder="Title" required>
+      </div>
+    </div>
+
+    <div class="control is-horizontal">
+      <div class="control-label">
+        <label for="description" class="label">Description</label>
+      </div>
+
+      <div class="control">
+        <textarea class="textarea" name="description" id="description" placeholder="Description" required>{{description}}</textarea>
+      </div>
+    </div>
+
+    <div class="control is-horizontal">
+      <div class="control-label">
+        <label for="priority" class="label">Priority</label>
+      </div>
+
+      <div class="control">
+        <input class="input" type="text" name="priority" id="priority" value="{{priority}}" placeholder="Priority"
+        required>
+      </div>
+    </div>
+
+    <div class="control is-horizontal">
+      <div class="control-label">
+        <label for="finishedBy" class="label">Finished by</label>
+      </div>
+
+      <div class="control">
+        <input class="input" type="date" name="finishedBy" id="finishedBy" value="{{finishedBy}}" required>
+      </div>
+    </div>
+
+    <div class="control is-horizontal">
+      <div class="control-label">
+      </div>
+
+      <div class="control">
+        <label for="finished" class="checkbox">
+          <input type="checkbox" name="finished" id="finished"
+            {{#if finished}}
+              value="1" checked="checked"
+            {{else}}
+              value="0"
+            {{/if_eq}}
+          >
+          Done
+        </label>
+      </div>
+    </div>
+
+    <div class="control is-horizontal">
+      <div class="control-label">
+      </div>
+
+      <div class="control">
+        <a class="button" href="/">Cancel</a>
+        <input class="button is-primary" type="submit" value="Update" />
+      </div>
+    </div>
+  </form>
+</div>

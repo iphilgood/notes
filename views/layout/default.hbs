@@ -5,6 +5,34 @@
     {{{block "pageStyles"}}}
   </head>
   <body>
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item is-brand" href="/">
+          NOTES
+        </a>
+      </div>
+
+      <div class="nav-center">
+      </div>
+
+      <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+
+      <div class="nav-right nav-menu">
+        <span class="nav-item">
+          {{#if_eq style "dark"}}
+            <a class="button" href="/?style=light">Light Style</a>
+          {{else}}
+            <a class="button" href="/?style=dark">Dark Style</a>
+          {{/if_eq}}
+          <a class="button is-primary" href="/new">Create new note</a>
+        </span>
+      </div>
+    </nav>
+
     <div class="container is-fluid">
       <div class="notification">
         {{{body}}}

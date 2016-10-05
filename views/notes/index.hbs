@@ -1,6 +1,55 @@
 {{!< default}}
 
-{{#contentFor 'pageStyles'}}
-{{/contentFor}}
+<nav class="level">
+  <div class="level-left">
+    <div class="tabs is-toggle">
+      <ul>
+        <li {{#if_eq orderBy "finishDate"}}class="is-active"{{/if_eq}}>
+          <a href="/?orderBy=finishedBy">By finished by</a>
+        </li>
+        <li {{#if_eq orderBy "date"}}class="is-active"{{/if_eq}}>
+          <a class="is-active" href="/?orderBy=createdAt">By created at</a>
+        </li>
+        <li {{#if_eq orderBy "priority"}}class="is-active"{{/if_eq}}>
+          <a class="" href="/?orderBy=priority">By priority</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 
-This container is <strong>centered</strong> on desktop.
+  <div class="level-right">
+    <ul>
+      {{#if filter}}
+        <a class="button is-primary" href="/?filter=true">Show finished</a>
+      {{else}}
+        <a class="button is-primary" href="/?filter=false">Show all</a>
+      {{/if}}
+    </ul>
+  </div>
+</nav>
+
+{{#each notes}}
+  <div class="card is-fullwidth">
+    <header class="card-header">
+      <p class="card-header-title">
+        <input class="checkbox--inline" type="checkbox" name="finished"
+          id="finished" {{#if finished}}checked="checked"{{/if}} disabled
+        >
+        {{title}}
+      </p>
+      <a class="card-header-icon">
+        <i class="fa fa-angle-down"></i>
+      </a>
+    </header>
+    <div class="card-content">
+      <div class="content">
+        {{description}}
+        <br />
+        <small>Finished by: {{finishedBy}}</small>
+      </div>
+    </div>
+    <footer class="card-footer">
+      <a class="card-footer-item" href="/edit/{{_id}}" >Edit</a>
+    </footer>
+  </div>
+{{/each}}
