@@ -38,6 +38,3 @@ jspm_packages
 
 # Database
 data/*.db
-
-# Custom project ignores
-public/styles/*
