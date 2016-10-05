@@ -29,3 +29,11 @@ app.use(express.static(__dirname + '/public'))
 app.listen(3000, function () {
   console.log('Example app listening at http://localhost:3000');
 });
+
+hbs.registerHelper('if_eq', function(a, b, opts) {
+  if (a == b) {
+    return opts.fn(this);
+  } else {
+    return opts.inverse(this);
+  }
+});
