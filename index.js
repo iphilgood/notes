@@ -1,5 +1,7 @@
 var express = require('express');
 var app = express();
+var Datastore = require('nedb')
+  , db = new Datastore({ filename: 'notes.db', autoload: true });
 
 app.get('/', function (req, res) {
   res.send('Hello World!');
