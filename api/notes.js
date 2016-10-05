@@ -4,7 +4,7 @@ var Datastore = require('nedb')
   , db = new Datastore({ filename: 'db/notes.db', autoload: true });
 
 router.get('/', function(req, res) {
-  const notes = db.find({}, function (err, docs) {
+  db.find({}, function (err, docs) {
     if (err) {
       res.send(err);
     } else {
