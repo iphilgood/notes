@@ -46,8 +46,7 @@ router.put('/', function(req, res) {
 });
 
 router.delete('/:id', function(req, res) {
-  const note = req.body;
-  db.remove({ _id: note._id }, {}, function(err, numRemoved) {
+  db.remove({ _id: req.params.id }, {}, function(err, numRemoved) {
     if (err) {
       res.send(err);
     } else {
