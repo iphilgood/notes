@@ -28,28 +28,40 @@
   </div>
 </nav>
 
-{{#each notes}}
-  <div class="card is-fullwidth">
-    <header class="card-header">
-      <p class="card-header-title">
-        <input class="checkbox--inline" type="checkbox" name="finished"
-          id="finished" {{#if finished}}checked="checked"{{/if}} disabled
-        >
-        {{title}}
-      </p>
-      <a class="card-header-icon">
-        <i class="fa fa-angle-down"></i>
-      </a>
-    </header>
-    <div class="card-content">
-      <div class="content">
-        {{description}}
-        <br />
-        <small>Finished by: {{finishedBy}}</small>
+{{#if notes }}
+  {{#each notes}}
+    <div class="card is-fullwidth">
+      <header class="card-header">
+        <p class="card-header-title">
+          <input class="checkbox--inline" type="checkbox" name="finished"
+            id="finished" {{#if finished}}checked="checked"{{/if}} disabled
+          >
+          {{title}}
+        </p>
+        <a class="card-header-icon">
+          <i class="fa fa-angle-down"></i>
+        </a>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          {{description}}
+          <br />
+          <small>Finished by: {{finishedBy}}</small>
+        </div>
       </div>
+      <footer class="card-footer">
+        <a class="card-footer-item" href="/edit/{{_id}}" >Edit</a>
+      </footer>
     </div>
-    <footer class="card-footer">
-      <a class="card-footer-item" href="/edit/{{_id}}" >Edit</a>
-    </footer>
+  {{/each}}
+{{else}}
+<article class="message is-primary">
+  <div class="message-header">
+    Ooooops!
   </div>
-{{/each}}
+  <div class="message-body">
+    <p>Currently there are no notes available.</p>
+    <p>Create one if you want to see some.</p>
+  </div>
+</article>
+{{/if}}
