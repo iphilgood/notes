@@ -6,6 +6,17 @@
 @import "./node_modules/bulma/sass/grid/grid.sass";
 @import "./node_modules/bulma/sass/layout/layout.sass";
 
+.nav-right {
+  box-shadow: none;
+  position: static;
+  align-items: stretch;
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-end;
+}
+
 .card {
   margin-bottom: 20px;
 }

@@ -4008,6 +4008,16 @@ a.panel-block:hover {
       .footer a:not(.icon):hover, .footer a:visited:not(.icon):hover {
         border-bottom-color: #00d1b2; }
 
+.nav-right {
+  box-shadow: none;
+  position: static;
+  align-items: stretch;
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-end; }
+
 .card {
   margin-bottom: 20px; }
 
