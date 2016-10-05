@@ -30,7 +30,7 @@ module.exports.createNote = function(req, res) {
     if (err) {
       console.log(err);
     }
-    getNotes(req, res);
+    res.redirect('/');
   });
 }
 
@@ -53,7 +53,7 @@ module.exports.editNote = function(req, res) {
       console.log(err);
     }
 
-    getNotes(req, res);
+    res.redirect('/');
   });
 }
 
@@ -63,6 +63,6 @@ module.exports.deleteNote = function(req, res) {
       console.log(err);
     }
 
-    getNotes(req, res);
+    res.redirect('/');
   });
 }
