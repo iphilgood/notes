@@ -25,7 +25,7 @@ module.exports.newNote = function(req, res) {
 }
 
 module.exports.createNote = function(req, res) {
-  store.add(req.body.title, req.body.description.
+  store.add(req.body.title, req.body.description,
             req.body.priority, req.body.finishedBy, function (err, newNote) {
     if (err) {
       console.log(err);
