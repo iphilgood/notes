@@ -2,7 +2,6 @@ const express = require('express');
 const hbs = require('express-hbs');
 const app = express();
 const bodyParser = require('body-parser');
-const notes = require('./api/notes');
 
 // Use `.hbs` for extensions and find partials in `views/partials`.
 app.engine('hbs', hbs.express4({
@@ -14,7 +13,8 @@ app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 
 app.use(bodyParser.json());
-app.use('/notes', notes);
+
+app.use('/', require('./routes/notesRoutes'));
 
 app.use(express.static(__dirname + '/public'))
 
