@@ -18,7 +18,7 @@ function getNote(id, callback) {
 }
 
 function insertNote(title, description, priority, finishedBy, callback) {
-  const note = Note(title, description, priority, finishedBy);
+  const note = new Note(title, description, priority, finishedBy);
   db.insert(note, function (err, newNote) {
     if (callback) {
       callback(err, newNote);
