@@ -34,7 +34,7 @@ router.post('/', function(req, res) {
   });
 });
 
-router.put('/', function(req, res) {
+router.put('/:id', function(req, res) {
   const note = req.body;
   db.update({ _id: note._id }, note, {}, function(err, numReplaced) {
     if (err) {
