@@ -4007,3 +4007,10 @@ a.panel-block:hover {
       border-bottom: 1px solid #dbdbdb; }
       .footer a:not(.icon):hover, .footer a:visited:not(.icon):hover {
         border-bottom-color: #00d1b2; }
+
+.card {
+  margin-bottom: 20px; }
+
+.checkbox--inline {
+  display: inline-block;
+  margin: 5px 10px 0 0; }

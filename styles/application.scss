@@ -5,3 +5,12 @@
 @import "./node_modules/bulma/sass/components/components.sass";
 @import "./node_modules/bulma/sass/grid/grid.sass";
 @import "./node_modules/bulma/sass/layout/layout.sass";
+
+.card {
+  margin-bottom: 20px;
+}
+
+.checkbox--inline {
+  display: inline-block;
+  margin: 5px 10px 0 0;
+}
