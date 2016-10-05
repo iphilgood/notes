@@ -1,0 +1,70 @@
+{{!< default}}
+
+<h1 class="title">Create Note</h1>
+
+<hr />
+
+<div class="content">
+  <form action='/notes' method='post'>
+    <div class="control is-horizontal">
+      <div class="control-label">
+        <label class="label">Title</label>
+      </div>
+      <div class="control">
+        <input class="input" type="text" placeholder="Title" required>
+      </div>
+    </div>
+
+    <div class="control is-horizontal">
+      <div class="control-label">
+        <label class="label">Description</label>
+      </div>
+
+      <div class="control">
+        <textarea class="textarea" placeholder="Description" required></textarea>
+      </div>
+    </div>
+
+    <div class="control is-horizontal">
+      <div class="control-label">
+        <label class="label">Importance</label>
+      </div>
+
+      <div class="control">
+        <input class="input" type="text" placeholder="Importance" required>
+      </div>
+    </div>
+
+    <div class="control is-horizontal">
+      <div class="control-label">
+        <label class="label">Done until</label>
+      </div>
+
+      <div class="control">
+        <input class="input" type="date" required>
+      </div>
+    </div>
+
+    <div class="control is-horizontal">
+      <div class="control-label">
+      </div>
+
+      <div class="control">
+        <label class="checkbox">
+          <input type="checkbox">
+          Done
+        </label>
+      </div>
+    </div>
+
+    <div class="control is-horizontal">
+      <div class="control-label">
+      </div>
+
+      <div class="control">
+        <a class="button" href="/">Abbruch</a>
+        <input class="button is-primary" type="submit" value="Anlegen" />
+      </div>
+    </div>
+  </form>
+</div>
