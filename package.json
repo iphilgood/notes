@@ -26,8 +26,14 @@
   },
   "license": "WTFPL",
   "dependencies": {
-    "express": "^4.14.0",
     "body-parser": "^1.12.4",
+    "bulma": "^0.2.1",
+    "express": "^4.14.0",
+    "express-hbs": "^1.0.3",
     "nedb": "^1.1.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
   }
 }
