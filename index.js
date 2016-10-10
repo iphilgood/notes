@@ -37,3 +37,10 @@ hbs.registerHelper('if_eq', function(a, b, opts) {
     return opts.inverse(this);
   }
 });
+
+hbs.registerHelper('times', function(n, block) {
+  var accum = '';
+  for(var i = 0; i < n; ++i)
+      accum += block.fn(i);
+  return accum;
+});
