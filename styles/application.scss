@@ -1,36 +1,13 @@
 @charset "utf-8";
 
-@import "./node_modules/bulma/sass/base/base.sass";
-@import "./node_modules/bulma/sass/elements/elements.sass";
-@import "./node_modules/bulma/sass/components/components.sass";
-@import "./node_modules/bulma/sass/grid/grid.sass";
-@import "./node_modules/bulma/sass/layout/layout.sass";
+// Normalize CSS
+@import "normalize.css";
 
-.nav-right {
-  box-shadow: none;
-  position: static;
-  align-items: stretch;
-  display: flex;
-  flex-basis: 0;
-  flex-grow: 1;
-  flex-shrink: 0;
-  justify-content: flex-end;
-}
+// Project settings
+@import "settings.scss";
 
-.card {
-  margin-bottom: 20px;
-}
+// Layout
+@import "layout.scss";
 
-.priority-stars {
-  align-items: center;
-  cursor: pointer;
-  display: flex;
-  justify-content: flex-end;
-  width: 90px;
-  padding-right: 10px;
-}
-
-.checkbox--inline {
-  display: inline-block;
-  margin: 5px 10px 0 0;
-}
+// Modules
+@import "modules/notes.scss";
