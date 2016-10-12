@@ -21,6 +21,15 @@
   margin-bottom: 20px;
 }
 
+.priority-stars {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  width: 90px;
+  padding-right: 10px;
+}
+
 .checkbox--inline {
   display: inline-block;
   margin: 5px 10px 0 0;
