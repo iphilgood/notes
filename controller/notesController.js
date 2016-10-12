@@ -1,4 +1,5 @@
 const store = require('../services/notesStore');
+const moment = require('moment');
 
 module.exports.getNotes = function(req, res) {
   store.all(function(err, notes) {
@@ -14,12 +15,13 @@ module.exports.getNotes = function(req, res) {
 }
 
 module.exports.newNote = function(req, res) {
+  const defaultNote = { finishedBy: moment().format("MM/DD/YYYY") };
   res.format({
         'text/html': function() {
-            res.render("notes/new");
+            res.render("notes/new", defaultNote);
         },
         'application/json': function() {
-            res.send({});
+            res.send(defaultNote);
         },
     });
 }
