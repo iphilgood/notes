@@ -1,0 +1,10 @@
+.btn {
+  background-color: $color__primary;
+  color: $color__bright;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  border: 1px solid $color__accent--light;
+  border-radius: $border__radius;
+  padding: 5px;
+}

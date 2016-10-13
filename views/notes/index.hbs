@@ -30,38 +30,34 @@
 
 {{#if notes }}
   {{#each notes}}
-    <div class="card is-fullwidth">
-      <header class="card-header">
-        <p class="card-header-title">
-          <input class="checkbox--inline" type="checkbox" name="finished"
-            id="finished" {{#if finished}}checked="checked"{{/if}} disabled
-          >
+    <div class="note">
+      <header class="note__header">
+        <span class="note__title">
+          <input class="checkbox" type="checkbox" name="finished" id="finished" {{#if finished}}checked="checked"{{/if}} disabled>
           {{title}}
-        </p>
-        <span class="priority-stars">
+        </span>
+        <span class="note__priority">
           {{#times priority}}
             ★
           {{/times}}
         </span>
       </header>
-      <div class="card-content">
-        <div class="content">
-          {{description}}
-          <br />
-          <small>Finished by: {{finishedBy}}</small>
-        </div>
+      <div class="note__content">
+        {{description}}
+        <br />
+        <small>Finished by: {{finishedBy}}</small>
       </div>
-      <footer class="card-footer">
-        <a class="card-footer-item" href="/edit/{{_id}}" >Edit</a>
+      <footer class="note__footer">
+        <a class="note__footer-item" href="/edit/{{_id}}" >Edit</a>
       </footer>
     </div>
   {{/each}}
 {{else}}
-  <article class="message is-primary">
-    <div class="message-header">
+  <article class="message">
+    <div class="message__header">
       Ooooops!
     </div>
-    <div class="message-body">
+    <div class="message__body">
       <p>Currently there are no notes available.</p>
       <p>Create one if you want to see some.</p>
     </div>

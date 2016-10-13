@@ -1,3 +1,55 @@
 @import url(normalize.css);
+body {
+  margin: 0; }
+
 .container {
-  max-width: 900px; }
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 10px; }
+
+.header {
+  background-color: #00d1b2;
+  padding: 10px; }
+
+.nav {
+  display: flex; }
+
+.nav__right {
+  flex: 1 auto;
+  display: flex;
+  justify-content: flex-end; }
+
+.note {
+  box-shadow: 0 2px 3px rgba(51, 51, 51, 0.1), 0 0 0 1px rgba(51, 51, 51, 0.1);
+  max-width: 400px;
+  margin: 0 auto 20px auto; }
+
+.note__header,
+.note__content,
+.note__footer {
+  padding: 10px; }
+
+.note__header {
+  display: flex;
+  border-bottom: 1px solid #f0f0f0; }
+
+.note__title,
+.note__priority {
+  flex: 1 auto; }
+
+.note__priority {
+  display: flex;
+  justify-content: flex-end; }
+
+.note__footer {
+  border-top: 1px solid #f0f0f0; }
+
+.btn {
+  background-color: #00d1b2;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  padding: 5px; }

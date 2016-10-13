@@ -1,15 +1,23 @@
 // COLORS
 // --------------------------
+// General colors
+$orange:    hsl(14,  100%, 53%);
+$yellow:    hsl(48,  100%, 67%);
+$green:     hsl(141, 71%,  48%);
+$turquoise: hsl(171, 100%, 41%);
+$blue:      hsl(217, 71%,  53%);
+$purple:    hsl(271, 100%, 71%);
+$red:       hsl(348, 100%, 61%);
 
 // COLOR NAMING
 // use general variable naming!
 $color__dark:               #333;
 $color__bright:             #fff;
 
-$color__brand--one:         #d60051;
-$color__brand--two:         #d7d7d7;
+$color__primary:            $turquoise;
+$color__secondary:          #d7d7d7;
 
-$color__accent:             $color__brand--two;
+$color__accent:             rgba($color__dark, 0.5);
 $color__accent--light:      #f0f0f0;
 $color__accent--dark:       #848484;
 
@@ -60,8 +68,8 @@ $paragraph__text-rendering:   auto;
 
 // ANCHORS
 $anchor__text-decoration:     none;
-$anchor__font-color:          $color__brand--one;
-$anchor__font-color-hover:    $color__brand--two;
+$anchor__font-color:          $color__primary;
+$anchor__font-color-hover:    $color__secondary;
 $anchor__font-color-active:   $color__dark;
 
 // HORIZONTAL RULER
@@ -72,5 +80,6 @@ $hr__border-style:            solid;
 $hr__border-color:            $body__font-color;
 
 // BORDER RADIUS
-$border-radius:               0;
-$border-radius--round:        100%;
+$border__color:                $color__accent--light;
+$border__radius:               4px;
+$border__radius--round:        100%;
