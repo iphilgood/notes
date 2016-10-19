@@ -1,6 +1,7 @@
 @import url(normalize.css);
 body {
-  margin: 0; }
+  margin: 0;
+  font-family: sans-serif; }
 
 .container {
   max-width: 900px;
@@ -31,7 +32,7 @@ body {
 
 .note__header {
   display: flex;
-  border-bottom: 1px solid #f0f0f0; }
+  border-bottom: 1px solid #f2f2f2; }
 
 .note__title,
 .note__priority {
@@ -42,7 +43,7 @@ body {
   justify-content: flex-end; }
 
 .note__footer {
-  border-top: 1px solid #f0f0f0; }
+  border-top: 1px solid #f2f2f2; }
 
 .btn {
   background-color: #00d1b2;
@@ -50,6 +51,21 @@ body {
   text-decoration: none;
   text-align: center;
   display: inline-block;
-  border: 1px solid #f0f0f0;
-  border-radius: 4px;
-  padding: 5px; }
+  border: 1px solid #f2f2f2;
+  border-radius: 3px;
+  padding: 6px 10px; }
+  .btn:hover {
+    background-color: #f2f2f2;
+    color: #333; }
+
+.btn--inverted {
+  background-color: #fff;
+  color: #00d1b2; }
+  .btn--inverted:hover {
+    color: #00d1b2; }
+
+.btn--logo {
+  border-width: 0; }
+  .btn--logo:hover {
+    background-color: transparent;
+    color: #fff; }

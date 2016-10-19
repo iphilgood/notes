@@ -18,7 +18,7 @@ $color__primary:            $turquoise;
 $color__secondary:          #d7d7d7;
 
 $color__accent:             rgba($color__dark, 0.5);
-$color__accent--light:      #f0f0f0;
+$color__accent--light:      #f2f2f2;
 $color__accent--dark:       #848484;
 
 $color__alert:              #f00;
@@ -81,5 +81,5 @@ $hr__border-color:            $body__font-color;
 
 // BORDER RADIUS
 $border__color:                $color__accent--light;
-$border__radius:               4px;
+$border__radius:               3px;
 $border__radius--round:        100%;

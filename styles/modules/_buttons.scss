@@ -6,5 +6,28 @@
   display: inline-block;
   border: 1px solid $color__accent--light;
   border-radius: $border__radius;
-  padding: 5px;
+  padding: 6px 10px;
+
+  &:hover {
+    background-color: $color__accent--light;
+    color: $color__dark;
+  }
+}
+
+.btn--inverted {
+  background-color: $color__bright;
+  color: $color__primary;
+
+  &:hover {
+    color: $color__primary;
+  }
+}
+
+.btn--logo {
+  border-width: 0;
+
+  &:hover {
+    background-color: transparent;
+    color: $color__bright;
+  }
 }
