@@ -6,31 +6,14 @@
   </head>
   <body>
     <header class="header">
-      <nav class="nav">
-        <div class="nav__left">
-          <a class="btn btn--logo" href="/">
-            NOTES
-          </a>
-        </div>
-
-        <div class="nav__right">
-          <span class="nav__item">
-            {{#if_eq style "dark"}}
-              <a class="btn" href="/?style=light">Light Style</a>
-            {{else}}
-              <a class="btn" href="/?style=dark">Dark Style</a>
-            {{/if_eq}}
-            <a class="btn btn--inverted" href="/new">Create new note</a>
-          </span>
-        </div>
-      </nav>
+      <a class="btn btn--logo" href="/">
+        NOTES
+      </a>
     </header>
 
     <main>
       <div class="container">
-        <div class="notification">
-          {{{body}}}
-        </div>
+        {{{body}}}
       </div>
     </main>
 

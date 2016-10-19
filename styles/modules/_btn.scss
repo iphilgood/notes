@@ -1,0 +1,26 @@
+.btn {
+  background-color: $color__bright;
+  color: $color__dark;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  border: 1px solid $color__accent--light;
+  border-radius: $border__radius;
+  padding: 6px 10px;
+  margin: 0 8px 8px 0;
+
+  &:hover {
+    border-color: $color__accent;
+  }
+}
+
+.btn--logo {
+  border-width: 0;
+  background-color: transparent;
+  color: $color__bright;
+  margin: 0;
+
+  &:hover {
+    color: $color__bright;
+  }
+}

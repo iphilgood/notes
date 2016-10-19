@@ -1,0 +1,27 @@
+.btn-group {
+  display: flex;
+
+  .btn {
+    flex: 0 1 120px;
+
+    &:last-child {
+      margin-left: auto;
+    }
+  }
+}
+
+.btn-group--expand {
+  flex-wrap: wrap;
+
+  .btn {
+    flex-basis: 100%;
+  }
+}
+
+@include mq(medium) {
+  .btn-group--expand {
+    .btn {
+      flex-basis: 120px;
+    }
+  }
+}

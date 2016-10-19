@@ -6,9 +6,13 @@
 // Project settings
 @import "settings.scss";
 
+// Project mixins
+@import "mixins.scss";
+
 // Layout
 @import "layout.scss";
 
 // Modules
 @import "modules/notes.scss";
-@import "modules/buttons.scss";
+@import "modules/btn.scss";
+@import "modules/btn-group.scss";
