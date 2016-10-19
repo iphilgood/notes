@@ -80,3 +80,12 @@ $option--alternate-color: $color__bright;
     }
   }
 }
+
+@include mq(medium) {
+  form {
+    [type="checkbox"] + label {
+      flex: 1 auto;
+      margin-left: 150px;
+    }
+  }
+}

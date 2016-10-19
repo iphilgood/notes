@@ -28,3 +28,29 @@ textarea {
     color: $color__accent--dark;
   }
 }
+
+@include mq(medium) {
+  input,
+  textarea {
+    width: auto;
+  }
+
+  form {
+    p {
+      display: flex;
+    }
+
+    .btn-group .btn:first-child {
+      margin-left: 150px;
+    }
+  }
+
+  label {
+    flex: 0 150px;
+  }
+
+  input,
+  textarea {
+    flex: 1 auto;
+  }
+}
