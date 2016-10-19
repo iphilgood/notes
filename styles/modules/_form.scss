@@ -1,0 +1,30 @@
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 3px;
+  cursor: pointer;
+  color: $color__dark;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+  background-color: $color__accent--light;
+  border: 1px solid $color__accent--light;
+  padding: 9px 12px;
+  font-size: 16px;
+  line-height: 1.5;
+
+  &:focus {
+    outline: 0;
+    background-color: $color__bright;
+    border-color: $color__accent;
+  }
+
+  &::placeholder {
+    color: $color__accent--dark;
+  }
+}
