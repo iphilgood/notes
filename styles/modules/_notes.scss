@@ -1,0 +1,30 @@
+.note {
+  box-shadow: 0 2px 3px rgba($color__dark, 0.1), 0 0 0 1px rgba($color__dark, 0.1);
+  margin: 0 auto 20px auto;
+}
+
+.note__priority,
+.note__content,
+.note__footer {
+  padding: 10px;
+}
+
+.note__header {
+  display: flex;
+  border-bottom: 1px solid $border__color;
+}
+
+.note__title,
+.note__priority {
+  flex: 1 auto;
+}
+
+.note__priority {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.note__footer {
+  border-top: 1px solid $border__color;
+}

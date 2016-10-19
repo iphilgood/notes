@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.header {
+  background-color: $color__primary;
+  padding: 10px;
+  margin-bottom: 16px;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav__right {
+  flex: 1 auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.spacer {
+  border-width: 0;
+  height: 16px;
+}

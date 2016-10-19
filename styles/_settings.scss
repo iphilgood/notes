@@ -1,0 +1,94 @@
+// MEDIAQUERIES
+// ----------------------------------------
+// 640px, 800px, 1200px
+$breakpoints: (
+  medium:   40em,
+  large:    50em,
+  xlarge:   75em
+);
+
+// COLORS
+// --------------------------
+// General colors
+$orange:    hsl(14,  100%, 53%);
+$yellow:    hsl(48,  100%, 67%);
+$green:     hsl(141, 71%,  48%);
+$turquoise: hsl(171, 100%, 41%);
+$blue:      hsl(217, 71%,  53%);
+$purple:    hsl(271, 100%, 71%);
+$red:       hsl(348, 100%, 61%);
+
+// COLOR NAMING
+// use general variable naming!
+$color__dark:               #333;
+$color__bright:             #fff;
+
+$color__primary:            $turquoise;
+$color__secondary:          #d7d7d7;
+
+$color__accent:             rgba($color__dark, 0.5);
+$color__accent--light:      #f2f2f2;
+$color__accent--dark:       #848484;
+
+$color__alert:              $red;
+$color__success:            #43ac6a;
+$color__warning:            #f08a24;
+$color__info:               #a0d3e8;
+
+// SPACES
+// ----------------------------------------
+$space__default-value: 10;  // e.g. used for paddings
+
+$grid__paddings: (
+  small: rem(10),
+  medium: rem(15),
+  large: rem(20)
+);
+
+// TYPO
+// ----------------------------------------
+$font-weight--light:         300;
+$font-weight--regular:       400;
+$font-weight--medium:        400;
+$font-weight--bold:          700;
+
+$body__font-family:           'Helvetica Neue', Helvetica, Helvetica, Arial, sans-serif;
+$body__font-size:             100%;
+$body__font-weight:           normal;
+$body__font-style:            normal;
+$body__font-color:            $color__dark;
+$body__line-height:           1.2;
+$body__background-color:      $color__bright;
+
+// HEADINGS
+$heading__font-family:        $body__font-family;
+$heading__font-weight:        900;
+$heading__font-style:         normal;
+$heading__font-color:         $body__font-color;
+$heading__text-rendering:     auto;
+
+// PARAGRAPHS
+$paragraph__font-family:      inherit;
+$paragraph__font-weight:      normal;
+$paragraph__font-size:        rem(16);
+$paragraph__line-height:      1.5;
+$paragraph__margin-bottom:    rem(12);
+$paragraph__text-rendering:   auto;
+
+// ANCHORS
+$anchor__text-decoration:     none;
+$anchor__font-color:          $color__primary;
+$anchor__font-color-hover:    $color__secondary;
+$anchor__font-color-active:   $color__dark;
+
+// HORIZONTAL RULER
+$hr__margin-top:              rem(18);
+$hr__margin-bottom:           $hr__margin-top;
+$hr__border-width:            rem(1);
+$hr__border-style:            solid;
+$hr__border-color:            $body__font-color;
+
+// BORDER RADIUS
+$border__color:                $color__accent--light;
+$border__radius:               3px;
+$border__radius--round:        100%;
