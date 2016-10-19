@@ -3,7 +3,7 @@
   margin: 0 auto 20px auto;
 }
 
-.note__header,
+.note__priority,
 .note__content,
 .note__footer {
   padding: 10px;
@@ -22,6 +22,7 @@
 .note__priority {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .note__footer {
