@@ -27,8 +27,8 @@
     <div class="note">
       <div class="note__header">
         <span class="note__title">
-          <input class="checkbox" type="checkbox" name="finished" id="finished" {{#if finished}}checked="checked"{{/if}} disabled>
-          {{title}}
+          <input class="checkbox" type="checkbox" id="finished" {{#if finished}}checked="checked"{{/if}} disabled>
+          <label for="finished"><i></i>{{title}}</label>
         </span>
         <span class="note__priority">
           {{#times priority}}

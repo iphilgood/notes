@@ -6,36 +6,18 @@
 
 <div class="content">
   <form action="/edit/{{_id}}" method="post">
-    <input class="input" type="hidden" name="_id" id="_id" value="{{_id}}" required>
-
+    <input type="hidden" name="_id" id="_id" value="{{_id}}" required>
     {{> inputs}}
 
-    <div class="control is-horizontal">
-      <div class="control-label">
-      </div>
+    <p>
+      <input type="checkbox" name="finished" id="finished"
+        {{#if finished}} value="1" checked="checked" {{else}} value="0" {{/if}}>
+      <label for="finished"><i></i>Done</label>
+    </p>
 
-      <div class="control">
-        <label for="finished" class="checkbox">
-          <input type="checkbox" name="finished" id="finished"
-            {{#if finished}}
-              value="1" checked="checked"
-            {{else}}
-              value="0"
-            {{/if}}
-          >
-          Done
-        </label>
-      </div>
-    </div>
-
-    <div class="control is-horizontal">
-      <div class="control-label">
-      </div>
-
-      <div class="control">
-        <a class="button" href="/">Cancel</a>
-        <input class="button is-primary" type="submit" value="Update" />
-      </div>
-    </div>
+    <p class="btn-group">
+      <a class="btn" href="/">Cancel</a>
+      <input class="btn" type="submit" value="Update" />
+    </p>
   </form>
 </div>
