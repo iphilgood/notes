@@ -7,7 +7,7 @@
   border: 1px solid $color__accent--light;
   border-radius: $border__radius;
   padding: 6px 10px;
-  margin: 0 8px 8px 0;
+  margin-bottom: 8px;
   line-height: 1.33;
 
   &:hover {
@@ -23,5 +23,11 @@
 
   &:hover {
     color: $color__bright;
+  }
+}
+
+@include mq(medium) {
+  .btn {
+    margin-right: 8px;
   }
 }
