@@ -7,45 +7,8 @@
 <div class="content">
   <form action="/edit/{{_id}}" method="post">
     <input class="input" type="hidden" name="_id" id="_id" value="{{_id}}" required>
-    <div class="control is-horizontal">
-      <div class="control-label">
-        <label for="title" class="label">Title</label>
-      </div>
-      <div class="control">
-        <input class="input" type="text" name="title" id="title" value="{{title}}" placeholder="Title" required>
-      </div>
-    </div>
 
-    <div class="control is-horizontal">
-      <div class="control-label">
-        <label for="description" class="label">Description</label>
-      </div>
-
-      <div class="control">
-        <textarea class="textarea" name="description" id="description" placeholder="Description" required>{{description}}</textarea>
-      </div>
-    </div>
-
-    <div class="control is-horizontal">
-      <div class="control-label">
-        <label for="priority" class="label">Priority</label>
-      </div>
-
-      <div class="control">
-        <input class="input" type="number" name="priority" id="priority" value="{{priority}}" placeholder="Priority"
-        required min="1" max="5">
-      </div>
-    </div>
-
-    <div class="control is-horizontal">
-      <div class="control-label">
-        <label for="finishedBy" class="label">Finished by</label>
-      </div>
-
-      <div class="control">
-        <input class="input" type="date" name="finishedBy" id="finishedBy" value="{{finishedBy}}" required>
-      </div>
-    </div>
+    {{> inputs}}
 
     <div class="control is-horizontal">
       <div class="control-label">
