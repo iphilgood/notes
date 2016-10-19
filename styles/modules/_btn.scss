@@ -9,9 +9,11 @@
   padding: 6px 10px;
   margin-bottom: 8px;
   line-height: 1.33;
+  box-sizing: content-box;
 
   &:hover {
     border-color: $color__accent;
+    cursor: pointer;
   }
 }
 
@@ -23,6 +25,30 @@
 
   &:hover {
     color: $color__bright;
+  }
+}
+
+.btn--primary {
+  background-color: $color__primary;
+  border-color: $color__primary;
+  color: $color__bright;
+
+  &:hover {
+    color: $color__bright;
+    background-color: $color__accent--dark;
+    border-color: $color__accent--dark;
+  }
+}
+
+.btn--alert {
+  background-color: $color__alert;
+  border-color: $color__alert;
+  color: $color__bright;
+
+  &:hover {
+    color: $color__bright;
+    background-color: $color__accent--dark;
+    border-color: $color__accent--dark;
   }
 }
 
