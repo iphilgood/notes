@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font-family: sans-serif;
+  background-color: $color__bright;
 }
 
 .container {
@@ -28,4 +29,17 @@ body {
 .spacer {
   border-width: 0;
   height: 16px;
+}
+
+a {
+  text-decoration: $anchor__text-decoration;
+  color: $anchor__font-color;
+
+  &:hover {
+    color: $anchor__font-color-hover;
+  }
+
+  &:active {
+    color: $anchor__font-color-active;
+  }
 }
