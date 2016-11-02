@@ -1,5 +1,5 @@
-const Datastore = require('nedb')
-    , db = new Datastore({ filename: './data/notes.db', autoload: true });
+const Datastore = require('nedb'),
+db = new Datastore({ filename: './data/notes.db', autoload: true });
 
 function Note(title, description, priority, finishedBy) {
   this.title = title;
@@ -7,10 +7,11 @@ function Note(title, description, priority, finishedBy) {
   this.priority = priority;
   this.finishedBy = finishedBy
   this.finished = false;
+  this.createDate = Date().now
 }
 
 function getNote(id, callback) {
-  db.findOne({ _id: id }, function (err, note) {
+  db.findOne({ _id: id }, function(err, note) {
     if (callback) {
       callback(err, note);
     }
@@ -19,7 +20,7 @@ function getNote(id, callback) {
 
 function insertNote(title, description, priority, finishedBy, callback) {
   const note = new Note(title, description, priority, finishedBy);
-  db.insert(note, function (err, newNote) {
+  db.insert(note, function(err, newNote) {
     if (callback) {
       callback(err, newNote);
     }
@@ -42,13 +43,16 @@ function deleteNote(id, callback) {
   });
 }
 
-function getAll(callback)
-{
-  db.find({}, function (err, notes) {
-      if (callback) {
-        callback(err, notes);
-      }
-  });
+function getAll(callback, orderBy = undefined) {
+  if (orderBy === 'finishedBy') {
+    db.find({}).sort({ finishedBy: -1 }).exec(function(err, notes) { if (callback) { callback(err, notes); } });
+  } else if (orderBy === 'createDate') {
+    db.find({}).sort({ createDate: -1 }).exec(function(err, notes) { if (callback) { callback(err, notes); } });
+  } else if (orderBy === 'priority') {
+    db.find({}).sort({ priority: -1 }).exec(function(err, notes) { if (callback) { callback(err, notes); } });
+  } else {
+    db.find({}).exec(function(err, notes) { if (callback) { callback(err, notes); } });
+  }
 }
 
 module.exports = {add: insertNote, update: updateNote, delete: deleteNote, get: getNote, all: getAll};

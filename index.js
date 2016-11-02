@@ -23,6 +23,13 @@ app.use(session({
 app.use(function (req, res, next) {
   if (!req.session.style) { req.session.style = 'light' }
   if (req.query.style) { req.session.style = req.query.style }
+  if (req.query.orderBy) {
+    if (req.session.orderBy === req.query.orderBy) {
+      req.session.orderBy = undefined;
+    } else {
+      req.session.orderBy = req.query.orderBy
+    }
+  }
   next()
 })
 

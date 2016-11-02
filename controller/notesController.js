@@ -5,13 +5,13 @@ module.exports.getNotes = function(req, res, next) {
   store.all(function(err, notes) {
     res.format({
       'text/html': function() {
-        res.render('notes/index', { style: req.session.style, notes });
+        res.render('notes/index', { style: req.session.style, orderBy: req.session.orderBy, notes });
       },
       'application/json': function() {
         res.send(notes);
       },
     });
-  });
+  }, req.session.orderBy);
 }
 
 module.exports.newNote = function(req, res, next) {
