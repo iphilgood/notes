@@ -4,12 +4,16 @@ const moment = require('moment');
 module.exports.getNotes = function(req, res) {
   store.all(function(err, notes) {
     res.format({
-        'text/html': function() {
-            res.render("notes/index", { notes: notes });
-        },
-        'application/json': function() {
-            res.send(notes);
-        },
+      'text/html': function() {
+        if (req.query.style) {
+          res.render("notes/index", { notes: notes, style: req.query.style });
+        } else {
+          res.render("notes/index", { notes: notes });
+        }
+      },
+      'application/json': function() {
+        res.send(notes);
+      },
     });
   });
 }
@@ -17,18 +21,17 @@ module.exports.getNotes = function(req, res) {
 module.exports.newNote = function(req, res) {
   const defaultNote = { finishedBy: moment().format("MM/DD/YYYY") };
   res.format({
-        'text/html': function() {
-            res.render("notes/new", defaultNote);
-        },
-        'application/json': function() {
-            res.send(defaultNote);
-        },
-    });
+    'text/html': function() {
+      res.render("notes/new", defaultNote);
+    },
+    'application/json': function() {
+      res.send(defaultNote);
+    },
+  });
 }
 
 module.exports.createNote = function(req, res) {
-  store.add(req.body.title, req.body.description,
-            req.body.priority, req.body.finishedBy, function (err, newNote) {
+  store.add(req.body.title, req.body.description, req.body.priority, req.body.finishedBy, function (err, newNote) {
     if (err) {
       console.log(err);
     }
@@ -39,12 +42,12 @@ module.exports.createNote = function(req, res) {
 module.exports.getNote = function(req, res) {
   store.get(req.params.id, function(err, note) {
     res.format({
-        'text/html': function(){
-            res.render("notes/edit", note);
-        },
-        'application/json': function(){
-            res.json(note);
-        },
+      'text/html': function(){
+        res.render("notes/edit", note);
+      },
+      'application/json': function(){
+        res.json(note);
+      },
     });
   });
 }
