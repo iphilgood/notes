@@ -1,7 +1,11 @@
 <html>
   <head>
     <title>{{title}}</title>
-    <link type="text/css" rel="stylesheet" href="/styles/application.css"/>
+    {{#if_eq style "dark"}}
+      <link type="text/css" rel="stylesheet" href="/styles/application--dark.css"/>
+    {{else}}
+      <link type="text/css" rel="stylesheet" href="/styles/application.css"/>
+    {{/if_eq}}
     {{{block "pageStyles"}}}
   </head>
   <body>

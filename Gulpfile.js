@@ -3,7 +3,7 @@ const sass        = require('gulp-sass')
 const browserSync = require('browser-sync')
 
 gulp.task('sass', function() {
-  gulp.src('styles/application.scss')
+  gulp.src(['styles/application.scss', 'styles/application--dark.scss'])
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./public/styles/'))
     .pipe(browserSync.stream())
