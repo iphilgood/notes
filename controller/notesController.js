@@ -1,15 +1,11 @@
 const store = require('../services/notesStore');
 const moment = require('moment');
 
-module.exports.getNotes = function(req, res) {
+module.exports.getNotes = function(req, res, next) {
   store.all(function(err, notes) {
     res.format({
       'text/html': function() {
-        if (req.query.style) {
-          res.render("notes/index", { notes: notes, style: req.query.style });
-        } else {
-          res.render("notes/index", { notes: notes });
-        }
+        res.render('notes/index', { style: req.session.style, notes });
       },
       'application/json': function() {
         res.send(notes);
@@ -18,11 +14,11 @@ module.exports.getNotes = function(req, res) {
   });
 }
 
-module.exports.newNote = function(req, res) {
-  const defaultNote = { finishedBy: moment().format("MM/DD/YYYY") };
+module.exports.newNote = function(req, res, next) {
+  const defaultNote = { finishedBy: moment().format('MM/DD/YYYY') };
   res.format({
     'text/html': function() {
-      res.render("notes/new", defaultNote);
+      res.render('notes/new', { style: req.session.style, defaultNote });
     },
     'application/json': function() {
       res.send(defaultNote);
@@ -39,11 +35,11 @@ module.exports.createNote = function(req, res) {
   });
 }
 
-module.exports.getNote = function(req, res) {
+module.exports.getNote = function(req, res, next) {
   store.get(req.params.id, function(err, note) {
     res.format({
       'text/html': function(){
-        res.render("notes/edit", note);
+        res.render('notes/edit', { style: req.session.style, note });
       },
       'application/json': function(){
         res.json(note);

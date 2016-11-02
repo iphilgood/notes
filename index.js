@@ -1,7 +1,8 @@
-const express = require('express');
-const hbs = require('express-hbs');
-const app = express();
-const bodyParser = require('body-parser');
+const express = require('express')
+const hbs = require('express-hbs')
+const app = express()
+const bodyParser = require('body-parser')
+const session = require('express-session')
 
 // Use `.hbs` for extensions and find partials in `views/partials`.
 app.engine('hbs', hbs.express4({
@@ -12,9 +13,22 @@ app.engine('hbs', hbs.express4({
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 
+app.use(session({
+  secret: 'iminlovewiththecoco',
+  resave: false,
+  saveUninitialized: true
+}))
+
+// Middleware for session handling
+app.use(function (req, res, next) {
+  if (!req.session.style) { req.session.style = 'light' }
+  if (req.query.style) { req.session.style = req.query.style }
+  next()
+})
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
-app.use(require("method-override")(function(req, res){
+app.use(require('method-override')(function(req, res) {
   if (req.body && typeof req.body === 'object' && '_method' in req.body) {
     var method = req.body._method;
     delete req.body._method;
