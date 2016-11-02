@@ -15,11 +15,11 @@ app.set('views', __dirname + '/views');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 app.use(require("method-override")(function(req, res){
-    if (req.body && typeof req.body === 'object' && '_method' in req.body) {
-        var method = req.body._method;
-        delete req.body._method;
-        return method;
-    }
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    var method = req.body._method;
+    delete req.body._method;
+    return method;
+  }
 }));
 
 app.use('/', require('./routes/notesRoutes'));
@@ -40,7 +40,8 @@ hbs.registerHelper('if_eq', function(a, b, opts) {
 
 hbs.registerHelper('times', function(n, block) {
   var accum = '';
-  for(var i = 0; i < n; ++i)
-      accum += block.fn(i);
+  for(var i = 0; i < n; ++i) {
+    accum += block.fn(i);
+  }
   return accum;
 });
