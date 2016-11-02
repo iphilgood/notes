@@ -13,39 +13,41 @@
   <a class="btn{{#if_eq orderBy "finishedBy"}} btn--active{{/if_eq}}" href="/?orderBy=finishedBy">By finished by</a>
   <a class="btn{{#if_eq orderBy "createDate"}} btn--active{{/if_eq}}" href="/?orderBy=createDate">By created at</a>
   <a class="btn{{#if_eq orderBy "priority"}} btn--active{{/if_eq}}" href="/?orderBy=priority">By priority</a>
-  {{#if filter}}
-    <a class="btn" href="/?filter=true">Show finished</a>
-  {{else}}
+  {{#if_eq filter 'true'}}
     <a class="btn" href="/?filter=false">Show all</a>
-  {{/if}}
+  {{else}}
+    <a class="btn" href="/?filter=true">Hide finished</a>
+  {{/if_eq}}
 </div>
 
 <hr class="spacer" />
 
 {{#if notes }}
-  {{#each notes}}
-    <div class="note">
-      <div class="note__header">
-        <span class="note__title">
-          <input class="checkbox" type="checkbox" id="finished" {{#if finished}}checked="checked"{{/if}} disabled>
-          <label for="finished"><i></i>{{title}}</label>
-        </span>
-        <span class="note__priority">
-          {{#times priority}}
-            ★
-          {{/times}}
-        </span>
+  <div class="notes{{#if_eq filter 'true'}} notes--hide-finished{{/if_eq}}">
+    {{#each notes}}
+      <div class="note{{#if finished}} note--finished{{/if}}">
+        <div class="note__header">
+          <span class="note__title">
+            <input class="checkbox" type="checkbox" id="finished" {{#if finished}}checked="checked"{{/if}} disabled>
+            <label for="finished"><i></i>{{title}}</label>
+          </span>
+          <span class="note__priority">
+            {{#times priority}}
+              ★
+            {{/times}}
+          </span>
+        </div>
+        <div class="note__content">
+          {{description}}
+          <br />
+          <small>Finished by: {{finishedBy}}</small>
+        </div>
+        <div class="note__footer">
+          <a class="note__footer-item" href="/edit/{{_id}}" >Edit</a>
+        </div>
       </div>
-      <div class="note__content">
-        {{description}}
-        <br />
-        <small>Finished by: {{finishedBy}}</small>
-      </div>
-      <div class="note__footer">
-        <a class="note__footer-item" href="/edit/{{_id}}" >Edit</a>
-      </div>
-    </div>
-  {{/each}}
+    {{/each}}
+  </div>
 {{else}}
   <div class="message">
     <div class="message__header">
