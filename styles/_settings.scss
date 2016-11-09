@@ -12,9 +12,9 @@ $breakpoints: (
 $space__default-value: 10;  // e.g. used for paddings
 
 $grid__paddings: (
-  small: rem(10),
-  medium: rem(15),
-  large: rem(20)
+  small: 10px,
+  medium: 15px,
+  large: 20px
 );
 
 // TYPO
@@ -42,9 +42,9 @@ $heading__text-rendering:     auto;
 // PARAGRAPHS
 $paragraph__font-family:      inherit;
 $paragraph__font-weight:      normal;
-$paragraph__font-size:        rem(16);
+$paragraph__font-size:        16px;
 $paragraph__line-height:      1.5;
-$paragraph__margin-bottom:    rem(12);
+$paragraph__margin-bottom:    12px;
 $paragraph__text-rendering:   auto;
 
 // ANCHORS
@@ -54,9 +54,9 @@ $anchor__font-color-hover:    $color__secondary;
 $anchor__font-color-active:   $color__dark;
 
 // HORIZONTAL RULER
-$hr__margin-top:              rem(18);
+$hr__margin-top:              18px;
 $hr__margin-bottom:           $hr__margin-top;
-$hr__border-width:            rem(1);
+$hr__border-width:            1px;
 $hr__border-style:            solid;
 $hr__border-color:            $body__font-color;
 
