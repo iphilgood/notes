@@ -23,19 +23,33 @@ app.use(session({
 
 // Middleware for session handling
 app.use(function (req, res, next) {
+  // Style
   if (!req.session.style) { req.session.style = 'light' }
   if (req.query.style) { req.session.style = req.query.style }
 
+  // Filter
   if (!req.session.filter) { req.session.filter = false }
   if (req.query.filter) { req.session.filter = req.query.filter }
 
+  // Ordering
   if (req.query.orderBy) {
+    const orderBy = req.query.orderBy
+
     if (req.session.orderBy === req.query.orderBy) {
-      req.session.orderBy = undefined;
+      const order = parseInt(req.session.order)
+      if (order === 1) {
+        req.session.order = -1
+        req.session.orderBy = orderBy
+      } else if (order === -1) {
+        req.session.order = undefined
+        req.session.orderBy = undefined
+      }
     } else {
-      req.session.orderBy = req.query.orderBy
+      req.session.orderBy = orderBy
+      req.session.order = 1
     }
   }
+
   next()
 })
 

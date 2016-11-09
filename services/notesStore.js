@@ -43,13 +43,13 @@ function deleteNote(id, callback) {
   });
 }
 
-function getAll(callback, orderBy = undefined) {
+function getAll(callback, orderBy = undefined, order = undefined) {
   if (orderBy === 'finishedBy') {
-    db.find({}).sort({ finishedBy: -1 }).exec(function(err, notes) { if (callback) { callback(err, notes); } });
+    db.find({}).sort({ finishedBy: order }).exec(function(err, notes) { if (callback) { callback(err, notes); } });
   } else if (orderBy === 'createDate') {
-    db.find({}).sort({ createDate: -1 }).exec(function(err, notes) { if (callback) { callback(err, notes); } });
+    db.find({}).sort({ createDate: order }).exec(function(err, notes) { if (callback) { callback(err, notes); } });
   } else if (orderBy === 'priority') {
-    db.find({}).sort({ priority: -1 }).exec(function(err, notes) { if (callback) { callback(err, notes); } });
+    db.find({}).sort({ priority: order }).exec(function(err, notes) { if (callback) { callback(err, notes); } });
   } else {
     db.find({}).exec(function(err, notes) { if (callback) { callback(err, notes); } });
   }

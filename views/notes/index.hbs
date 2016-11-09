@@ -10,9 +10,30 @@
 </div>
 
 <div class="btn-group btn-group--expand">
-  <a class="btn{{#if_eq orderBy "finishedBy"}} btn--active{{/if_eq}}" href="/?orderBy=finishedBy">By finished by</a>
-  <a class="btn{{#if_eq orderBy "createDate"}} btn--active{{/if_eq}}" href="/?orderBy=createDate">By created at</a>
-  <a class="btn{{#if_eq orderBy "priority"}} btn--active{{/if_eq}}" href="/?orderBy=priority">By priority</a>
+  <a class="btn{{#if_eq orderBy "finishedBy"}} btn--active{{/if_eq}}" href="/?orderBy=finishedBy">
+    By finished by
+    {{#if_eq orderBy "finishedBy"}}
+    {{#if_eq order "1"}}&#9650;{{/if_eq}}
+    {{#if_eq order "-1"}}&#9660;{{/if_eq}}
+    {{/if_eq}}
+  </a>
+
+  <a class="btn{{#if_eq orderBy "createDate"}} btn--active{{/if_eq}}" href="/?orderBy=createDate">
+    By created at
+    {{#if_eq orderBy "createDate"}}
+    {{#if_eq order "1"}}&#9650;{{/if_eq}}
+    {{#if_eq order "-1"}}&#9660;{{/if_eq}}
+    {{/if_eq}}
+  </a>
+
+  <a class="btn{{#if_eq orderBy "priority"}} btn--active{{/if_eq}}" href="/?orderBy=priority">
+    By priority
+    {{#if_eq orderBy "priority"}}
+    {{#if_eq order "1"}}&#9650;{{/if_eq}}
+    {{#if_eq order "-1"}}&#9660;{{/if_eq}}
+    {{/if_eq}}
+  </a>
+
   {{#if_eq filter 'true'}}
     <a class="btn" href="/?filter=false">Show all</a>
   {{else}}

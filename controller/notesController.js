@@ -6,13 +6,13 @@ module.exports.getNotes = function(req, res, next) {
   store.all(function(err, notes) {
     res.format({
       'text/html': function() {
-        res.render('notes/index', { style: session.style, orderBy: session.orderBy, filter: session.filter, notes });
+        res.render('notes/index', { style: session.style, orderBy: session.orderBy, order: session.order, filter: session.filter, notes });
       },
       'application/json': function() {
         res.send(notes);
       },
     });
-  }, req.session.orderBy);
+  }, req.session.orderBy, req.session.order);
 }
 
 module.exports.newNote = function(req, res, next) {
