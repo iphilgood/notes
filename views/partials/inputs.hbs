@@ -1,19 +1,19 @@
 <p>
   <label for="title">Title</label>
-  <input type="text" name="title" id="title" value="{{title}}" placeholder="Title" required>
+  <input type="text" name="title" id="title" value="{{note.title}}" placeholder="Title" required>
 </p>
 
 <p>
   <label for="description">Description</label>
-  <textarea name="description" id="description" placeholder="Description" required>{{description}}</textarea>
+  <textarea name="description" id="description" placeholder="Description" required>{{note.description}}</textarea>
 </p>
 
 <p>
   <label for="priority">Priority</label>
-  <input type="number" name="priority" id="priority" value="{{priority}}" placeholder="Priority" required min="1" max="5">
+  <input type="number" name="priority" id="priority" value="{{note.priority}}" placeholder="Priority" required min="1" max="5">
 </p>
 
 <p>
   <label for="finishedBy">Finished by</label>
-  <input type="date" name="finishedBy" id="finishedBy" value="{{finishedBy}}" required>
+  <input type="date" name="finishedBy" id="finishedBy" value="{{note.finishedBy}}" required>
 </p>

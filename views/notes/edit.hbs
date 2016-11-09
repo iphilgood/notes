@@ -5,13 +5,13 @@
 <hr />
 
 <div class="content">
-  <form action="/edit/{{_id}}" method="post">
-    <input type="hidden" name="_id" id="_id" value="{{_id}}" required>
-    {{> inputs}}
+  <form action="/edit/{{note._id}}" method="post">
+    <input type="hidden" name="_id" id="_id" value="{{note._id}}" required>
+    {{> inputs note=note}}
 
     <p>
       <input type="checkbox" name="finished" id="finished"
-        {{#if finished}} value="1" checked="checked" {{else}} value="0" {{/if}}>
+        {{#if note.finished}} value="1" checked="checked" {{else}} value="0" {{/if}}>
       <label for="finished"><i></i>Done</label>
     </p>
 
