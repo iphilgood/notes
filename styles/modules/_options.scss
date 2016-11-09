@@ -27,7 +27,8 @@ $option--alternate-color: $color__bright;
     i {
       position: absolute;
       box-sizing: border-box;
-      top: ($option__label-size - $option__checkbox-size) / 2;
+      top: 50%;
+      margin-top: -($option__label-size - $option__checkbox-size) / 2;
       left: ($option__label-size - $option__checkbox-size) / 2;
 
       &::before {

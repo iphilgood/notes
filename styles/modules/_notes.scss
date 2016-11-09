@@ -26,6 +26,11 @@
   align-items: center;
 }
 
+.note__due-date {
+  display: block;
+  font-size: 12px;
+}
+
 .note__footer {
   border-top: 1px solid $border__color;
 }

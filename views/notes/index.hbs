@@ -27,20 +27,22 @@
     {{#each notes}}
       <div class="note{{#if finished}} note--finished{{/if}}">
         <div class="note__header">
-          <span class="note__title">
+          <div class="note__title">
             <input class="checkbox" type="checkbox" id="finished" {{#if finished}}checked="checked"{{/if}} disabled>
-            <label for="finished"><i></i>{{title}}</label>
-          </span>
-          <span class="note__priority">
+            <label for="finished">
+              <i></i>{{title}}
+              <small class="note__due-date">{{moment d "to" finishedBy }}</small>
+            </label>
+          </div>
+
+          <div class="note__priority">
             {{#times priority}}
               ★
             {{/times}}
-          </span>
+          </div>
         </div>
         <div class="note__content">
-          {{description}}
-          <br />
-          <small>Finished by: {{finishedBy}}</small>
+          <p>{{description}}</p>
         </div>
         <div class="note__footer">
           <a class="note__footer-item" href="/edit/{{_id}}" >Edit</a>
