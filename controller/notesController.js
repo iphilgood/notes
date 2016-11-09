@@ -3,7 +3,6 @@ const moment = require('moment');
 
 module.exports.getNotes = function(req, res, next) {
   const session = req.session
-  console.log(session.filter)
   store.all(function(err, notes) {
     res.format({
       'text/html': function() {
@@ -29,7 +28,7 @@ module.exports.newNote = function(req, res, next) {
 }
 
 module.exports.createNote = function(req, res) {
-  store.add(req.body.title, req.body.description, req.body.priority, req.body.finishedBy, function (err, newNote) {
+  store.add(req.body.title, req.body.description, req.body.priority, req.body.finishedBy, function(err, newNote) {
     if (err) {
       console.log(err);
     }
