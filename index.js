@@ -3,6 +3,8 @@ const hbs = require('express-hbs')
 const app = express()
 const bodyParser = require('body-parser')
 const session = require('express-session')
+const MomentHandler = require('handlebars.moment')
+MomentHandler.registerHelpers(hbs)
 
 // Use `.hbs` for extensions and find partials in `views/partials`.
 app.engine('hbs', hbs.express4({

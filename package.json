@@ -32,6 +32,7 @@
     "express": "^4.14.0",
     "express-hbs": "^1.0.3",
     "express-session": "^1.14.2",
+    "handlebars.moment": "^1.0.4",
     "method-override": "^2.3.3",
     "moment": "^2.15.1",
     "nedb": "^1.1.2"
