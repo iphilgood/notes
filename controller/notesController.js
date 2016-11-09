@@ -20,7 +20,7 @@ module.exports.newNote = function(req, res, next) {
   const defaultNote = { finishedBy: moment().format('MM/DD/YYYY') };
   res.format({
     'text/html': function() {
-      res.render('notes/new', { style: req.session.style, defaultNote });
+      res.render('notes/new', { style: req.session.style, note: defaultNote });
     },
     'application/json': function() {
       res.send(defaultNote);
@@ -41,7 +41,7 @@ module.exports.getNote = function(req, res, next) {
   store.get(req.params.id, function(err, note) {
     res.format({
       'text/html': function(){
-        res.render('notes/edit', { style: req.session.style, note });
+        res.render('notes/edit', { style: req.session.style, note: note });
       },
       'application/json': function(){
         res.json(note);
