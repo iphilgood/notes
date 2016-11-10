@@ -24,6 +24,7 @@ app.use(session({
 
 // Middleware for session handling
 app.use((req, res, next) => {
+  /* eslint-disable no-param-reassign */
   // Style
   if (!req.session.style) { req.session.style = 'light'; }
   if (req.query.style) { req.session.style = req.query.style; }
@@ -37,7 +38,7 @@ app.use((req, res, next) => {
     const orderBy = req.query.orderBy;
 
     if (req.session.orderBy === orderBy) {
-      const order = parseInt(req.session.order);
+      const order = parseInt(req.session.order, 10);
       if (order === 1) {
         req.session.order = -1;
         req.session.orderBy = orderBy;
@@ -51,6 +52,7 @@ app.use((req, res, next) => {
     }
   }
 
+  /* eslint-enable no-param-reassign */
   next();
 });
 
@@ -82,7 +84,7 @@ hbs.registerHelper('if_eq', function (a, b, opts) {
 
 hbs.registerHelper('times', (n, block) => {
   let accum = '';
-  for (let i = 0; i < n; ++i) {
+  for (let i = 0; i < n; i += 1) {
     accum += block.fn(i);
   }
   return accum;
