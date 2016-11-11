@@ -22,8 +22,6 @@ app.use(session({
   saveUninitialized: true,
 }));
 
-app.use(require('express-favicon-short-circuit'));
-
 // Middleware for session handling
 app.use((req, res, next) => {
   /* eslint-disable no-param-reassign */
