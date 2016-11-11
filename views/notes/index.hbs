@@ -10,29 +10,15 @@
 </div>
 
 <div class="btn-group btn-group--expand">
-  <a class="btn{{#if_eq orderBy "finishedBy"}} btn--active{{/if_eq}}" href="/?orderBy=finishedBy">
-    By finished by
-    {{#if_eq orderBy "finishedBy"}}
-    {{#if_eq order "1"}}&#9650;{{/if_eq}}
-    {{#if_eq order "-1"}}&#9660;{{/if_eq}}
-    {{/if_eq}}
-  </a>
-
-  <a class="btn{{#if_eq orderBy "createDate"}} btn--active{{/if_eq}}" href="/?orderBy=createDate">
-    By created at
-    {{#if_eq orderBy "createDate"}}
-    {{#if_eq order "1"}}&#9650;{{/if_eq}}
-    {{#if_eq order "-1"}}&#9660;{{/if_eq}}
-    {{/if_eq}}
-  </a>
-
-  <a class="btn{{#if_eq orderBy "priority"}} btn--active{{/if_eq}}" href="/?orderBy=priority">
-    By priority
-    {{#if_eq orderBy "priority"}}
-    {{#if_eq order "1"}}&#9650;{{/if_eq}}
-    {{#if_eq order "-1"}}&#9660;{{/if_eq}}
-    {{/if_eq}}
-  </a>
+  {{#each orderOptions}}
+    <a class="btn{{#if_eq ../orderBy condition}} btn--active{{/if_eq}}" href="{{#if_eq ../orderReset true}}/{{else}}/?orderBy={{condition}}&order={{#if_eq ../orderBy condition}}{{#if_eq ../order 'asc'}}desc{{else}}asc{{/if_eq}}{{else}}asc{{/if_eq}}{{/if_eq}}">
+      {{btnText}}
+      {{#if_eq ../orderBy condition}}
+        {{#if_eq ../order "asc"}}&#9650;{{/if_eq}}
+        {{#if_eq ../order "desc"}}&#9660;{{/if_eq}}
+      {{/if_eq}}
+    </a>
+  {{/each}}
 
   {{#if_eq filter 'true'}}
     <a class="btn" href="/?filter=false">Show all</a>

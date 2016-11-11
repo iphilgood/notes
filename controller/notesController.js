@@ -1,12 +1,36 @@
 const store = require('../services/notesStore');
 const moment = require('moment');
 
-module.exports.getNotes = function(req, res, next) {
+const orderOptions = [
+  {
+    condition: 'finishedBy',
+    btnText: 'By finished by',
+  },
+  {
+    condition: 'createDate',
+    btnText: 'By created at',
+  },
+  {
+    condition: 'priority',
+    btnText: 'By priority',
+  },
+];
+
+module.exports.getNotes = function(req, res) {
   const session = req.session
+  console.log(`CONTROLLER\tBy: ${session.orderBy}\tOrder: ${session.order}\tReset: ${session.orderReset}`)
   store.all(function(err, notes) {
     res.format({
       'text/html': function() {
-        res.render('notes/index', { style: session.style, orderBy: session.orderBy, order: session.order, filter: session.filter, notes });
+        res.render('notes/index', {
+          style: session.style,
+          orderOptions,
+          orderBy: session.orderBy,
+          order: session.order,
+          orderReset: session.orderReset,
+          filter: session.filter,
+          notes,
+        });
       },
       'application/json': function() {
         res.send(notes);
