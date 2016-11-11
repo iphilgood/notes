@@ -44,12 +44,13 @@ function deleteNote(id, callback) {
 }
 
 function getAll(callback, orderBy = undefined, order = undefined) {
+  let sortOrder = order === 'asc' ? 1 : -1;
   if (orderBy === 'finishedBy') {
-    db.find({}).sort({ finishedBy: order }).exec(function(err, notes) { if (callback) { callback(err, notes); } });
+    db.find({}).sort({ finishedBy: sortOrder }).exec(function(err, notes) { if (callback) { callback(err, notes); } });
   } else if (orderBy === 'createDate') {
-    db.find({}).sort({ createDate: order }).exec(function(err, notes) { if (callback) { callback(err, notes); } });
+    db.find({}).sort({ createDate: sortOrder }).exec(function(err, notes) { if (callback) { callback(err, notes); } });
   } else if (orderBy === 'priority') {
-    db.find({}).sort({ priority: order }).exec(function(err, notes) { if (callback) { callback(err, notes); } });
+    db.find({}).sort({ priority: sortOrder }).exec(function(err, notes) { if (callback) { callback(err, notes); } });
   } else {
     db.find({}).exec(function(err, notes) { if (callback) { callback(err, notes); } });
   }
