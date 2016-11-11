@@ -25,6 +25,7 @@ app.use(session({
 // Middleware for session handling
 app.use((req, res, next) => {
   /* eslint-disable no-param-reassign */
+
   // Style
   if (!req.session.style) { req.session.style = 'light'; }
   if (req.query.style) { req.session.style = req.query.style; }
@@ -34,43 +35,19 @@ app.use((req, res, next) => {
   if (req.query.filter) { req.session.filter = req.query.filter; }
 
   // Ordering
-  // if (!req.session.order) { req.session.order = 'asc'; }
-  if (req.query.orderBy) {
-    console.log(`SESSION\t\tBy: ${req.session.orderBy}\tOrder: ${req.session.order}\t\tReset: ${req.session.orderReset}`)
+  const orderBy = req.query.orderBy;
+  const order = req.query.order;
 
-    const orderBy = req.query.orderBy;
-    const order = req.query.order;
+  req.session.orderBy = orderBy;
+  req.session.order = order;
+  req.session.orderReset = false;
 
-    req.session.orderBy = orderBy;
-    req.session.order = order;
-    req.session.orderReset = false;
-
-    if (req.session.orderBy === orderBy && req.session.order === 'desc') {
-      req.session.orderBy = undefined;
-      req.session.order = undefined;
-      req.session.orderReset = true;
-    }
-
-    if (req.session.orderReset) {
-      req.session.orderReset = false;
-    }
-
-    //   if (order === 'asc') {
-    //     console.log('yes')
-    //     req.session.order = 'desc';
-    //   } else if (order === 'desc') {
-    //     req.session.order = undefined;
-    //     req.session.orderBy = undefined;
-    //     req.session.orderReset = true;
-    //   }
-    // } else {
-    //   req.session.orderBy = orderBy;
-    //   req.session.order = order;
-    // }
+  if (req.session.orderBy === orderBy && req.session.order === 'desc') {
+    req.session.orderReset = true;
   }
 
-  /* eslint-enable no-param-reassign */
   next();
+  /* eslint-enable no-param-reassign */
 });
 
 app.use(bodyParser.urlencoded({ extended: true }));
