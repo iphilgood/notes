@@ -22,6 +22,8 @@ app.use(session({
   saveUninitialized: true,
 }));
 
+app.use(require('express-favicon-short-circuit'));
+
 // Middleware for session handling
 app.use((req, res, next) => {
   /* eslint-disable no-param-reassign */
@@ -34,22 +36,39 @@ app.use((req, res, next) => {
   if (req.query.filter) { req.session.filter = req.query.filter; }
 
   // Ordering
+  // if (!req.session.order) { req.session.order = 'asc'; }
   if (req.query.orderBy) {
-    const orderBy = req.query.orderBy;
+    console.log(`SESSION\t\tBy: ${req.session.orderBy}\tOrder: ${req.session.order}\t\tReset: ${req.session.orderReset}`)
 
-    if (req.session.orderBy === orderBy) {
-      const order = parseInt(req.session.order, 10);
-      if (order === 1) {
-        req.session.order = -1;
-        req.session.orderBy = orderBy;
-      } else if (order === -1) {
-        req.session.order = undefined;
-        req.session.orderBy = undefined;
-      }
-    } else {
-      req.session.orderBy = orderBy;
-      req.session.order = 1;
+    const orderBy = req.query.orderBy;
+    const order = req.query.order;
+
+    req.session.orderBy = orderBy;
+    req.session.order = order;
+    req.session.orderReset = false;
+
+    if (req.session.orderBy === orderBy && req.session.order === 'desc') {
+      req.session.orderBy = undefined;
+      req.session.order = undefined;
+      req.session.orderReset = true;
     }
+
+    if (req.session.orderReset) {
+      req.session.orderReset = false;
+    }
+
+    //   if (order === 'asc') {
+    //     console.log('yes')
+    //     req.session.order = 'desc';
+    //   } else if (order === 'desc') {
+    //     req.session.order = undefined;
+    //     req.session.orderBy = undefined;
+    //     req.session.orderReset = true;
+    //   }
+    // } else {
+    //   req.session.orderBy = orderBy;
+    //   req.session.order = order;
+    // }
   }
 
   /* eslint-enable no-param-reassign */
