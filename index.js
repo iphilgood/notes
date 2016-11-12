@@ -69,7 +69,7 @@ app.listen(3000, () => {
   console.log('Example app listening at http://localhost:3000');
 });
 
-hbs.registerHelper('if_eq', function (a, b, opts) {
+hbs.registerHelper('if_eq', (a, b, opts) => {
   if (a === b) {
     return opts.fn(this);
   }
