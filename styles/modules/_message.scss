@@ -1,0 +1,12 @@
+.message__header {
+  background-color: $color__primary;
+  padding: 10px;
+  color: $color__bright;
+}
+
+.message__body {
+  padding: 10px;
+  border-right: 1px solid $border__color;
+  border-bottom: 1px solid $border__color;
+  border-left: 1px solid $border__color;
+}
