@@ -12,7 +12,9 @@
   box-sizing: content-box;
 
   &:hover {
-    border-color: $color__accent;
+    background-color: $color__primary;
+    border-color: $color__primary;
+    color: $color__bright;
     cursor: pointer;
   }
 }
