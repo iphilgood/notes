@@ -11,7 +11,7 @@
 
 <div class="btn-group btn-group--expand">
   {{#each orderOptions}}
-    <a class="btn{{#if_eq ../orderBy condition}} btn--active{{/if_eq}}" href="{{#if_eq ../orderBy condition}}{{#if_eq ../orderReset true}}/{{else}}/?orderBy={{condition}}&order={{#if_eq ../order 'asc'}}desc{{else}}asc{{/if_eq}}{{/if_eq}}{{else}}/?orderBy={{condition}}&order=asc{{/if_eq}}">
+    <a class="btn{{#if_eq ../orderBy condition}} btn--active{{/if_eq}}" href="{{#if_eq ../orderBy condition}}{{#if_eq ../orderReset true}}/?reset=true{{else}}/?orderBy={{condition}}&order={{#if_eq ../order 'asc'}}desc{{else}}asc{{/if_eq}}{{/if_eq}}{{else}}/?orderBy={{condition}}&order=asc{{/if_eq}}">
       {{btnText}}
       {{#if_eq ../orderBy condition}}
         {{#if_eq ../order "asc"}}&#9650;{{/if_eq}}

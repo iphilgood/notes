@@ -35,15 +35,22 @@ app.use((req, res, next) => {
   if (req.query.filter) { req.session.filter = req.query.filter; }
 
   // Ordering
-  const orderBy = req.query.orderBy;
-  const order = req.query.order;
+  if (req.query.orderBy && req.query.order) {
+    const orderBy = req.query.orderBy;
+    const order = req.query.order;
 
-  req.session.orderBy = orderBy;
-  req.session.order = order;
-  req.session.orderReset = false;
+    req.session.orderBy = orderBy;
+    req.session.order = order;
+    req.session.orderReset = false;
 
-  if (req.session.orderBy === orderBy && req.session.order === 'desc') {
-    req.session.orderReset = true;
+    if (req.session.orderBy === orderBy && req.session.order === 'desc') {
+      req.session.orderReset = true;
+    }
+  }
+
+  if (req.query.reset) {
+    req.session.orderBy = undefined;
+    req.session.order = undefined;
   }
 
   next();
