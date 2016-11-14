@@ -16,12 +16,11 @@ const orderOptions = [
   },
 ];
 
-module.exports.getNotes = function(req, res) {
-  const session = req.session
-  console.log(`CONTROLLER\tBy: ${session.orderBy}\tOrder: ${session.order}\tReset: ${session.orderReset}`)
-  store.all(function(err, notes) {
+module.exports.getNotes = (req, res) => {
+  const session = req.session;
+  store.all((err, notes) => {
     res.format({
-      'text/html': function() {
+      'text/html': () => {
         res.render('notes/index', {
           style: session.style,
           orderOptions,
@@ -32,63 +31,67 @@ module.exports.getNotes = function(req, res) {
           notes,
         });
       },
-      'application/json': function() {
+      'application/json': () => {
         res.send(notes);
       },
     });
   }, req.session.orderBy, req.session.order);
-}
+};
 
-module.exports.newNote = function(req, res, next) {
+module.exports.newNote = (req, res) => {
   const defaultNote = { finishedBy: moment().format('MM/DD/YYYY') };
   res.format({
-    'text/html': function() {
+    'text/html': () => {
       res.render('notes/new', { style: req.session.style, note: defaultNote });
     },
-    'application/json': function() {
+    'application/json': () => {
       res.send(defaultNote);
     },
   });
-}
+};
 
-module.exports.createNote = function(req, res) {
-  store.add(req.body.title, req.body.description, req.body.priority, req.body.finishedBy, function(err, newNote) {
-    if (err) {
-      console.log(err);
-    }
-    res.redirect('/');
-  });
-}
+module.exports.createNote = (req, res) => {
+  store.add(
+    req.body.title,
+    req.body.description,
+    req.body.priority,
+    req.body.finishedBy, (err) => {
+      if (err) {
+        console.log(err);
+      }
+      res.redirect('/');
+    });
+};
 
-module.exports.getNote = function(req, res, next) {
-  store.get(req.params.id, function(err, note) {
+module.exports.getNote = (req, res) => {
+  store.get(req.params.id, (err, note) => {
     res.format({
-      'text/html': function(){
-        res.render('notes/edit', { style: req.session.style, note: note });
+      'text/html': () => {
+        res.render('notes/edit', { style: req.session.style, note });
       },
-      'application/json': function(){
+      'application/json': () => {
         res.json(note);
       },
     });
   });
-}
+};
 
-module.exports.editNote = function(req, res) {
-  store.update(req.body, function(err) {
+module.exports.editNote = (req, res) => {
+  store.update(req.body, (err) => {
     if (err) {
       console.log(err);
     }
 
     res.redirect('/');
   });
-}
+};
 
-module.exports.deleteNote = function(req, res) {
-  store.delete(req.params.id, function(err) {
+module.exports.deleteNote = (req, res) => {
+  store.delete(req.params.id, (err) => {
     if (err) {
       console.log(err);
     }
 
     res.redirect('/');
   });
-}
+};
