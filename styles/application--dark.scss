@@ -20,3 +20,8 @@
 @import "modules/form.scss";
 @import "modules/options.scss";
 @import "modules/message.scss";
+
+h1,
+.message {
+  color: $color__dark;
+}
