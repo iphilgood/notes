@@ -64,6 +64,11 @@
   }
 }
 
+.btn--shift-right {
+  margin-left: auto;
+  margin-right: 0;
+}
+
 @include mq(medium) {
   .btn {
     margin-right: 8px;

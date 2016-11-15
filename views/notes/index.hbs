@@ -3,9 +3,9 @@
 <div class="btn-group">
   <a class="btn" href="/new">Create new note</a>
   {{#if_eq style "dark"}}
-    <a class="btn" href="/?style=light">Light Style</a>
+    <a class="btn btn--shift-right" href="/?style=light">Light Style</a>
   {{else}}
-    <a class="btn" href="/?style=dark">Dark Style</a>
+    <a class="btn btn--shift-right" href="/?style=dark">Dark Style</a>
   {{/if_eq}}
 </div>
 
@@ -20,11 +20,13 @@
     </a>
   {{/each}}
 
-  {{#if_eq filter 'true'}}
-    <a class="btn" href="/?filter=false">Show all</a>
-  {{else}}
-    <a class="btn" href="/?filter=true">Hide finished</a>
-  {{/if_eq}}
+  {{#if notes}}
+    {{#if_eq filter 'true'}}
+      <a class="btn btn--shift-right" href="/?filter=false">Show all</a>
+    {{else}}
+      <a class="btn btn--shift-right" href="/?filter=true">Hide finished</a>
+    {{/if_eq}}
+  {{/if}}
 </div>
 
 <hr class="spacer" />
