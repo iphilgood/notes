@@ -1,4 +1,5 @@
 const Datastore = require('nedb');
+const moment = require('moment');
 
 const db = new Datastore({ filename: './data/notes.db', autoload: true });
 
@@ -8,7 +9,7 @@ function Note(title, description, priority, finishedBy) {
   this.priority = priority;
   this.finishedBy = finishedBy;
   this.finished = false;
-  this.createDate = Date().now;
+  this.createDate = moment().format('YYYY-MM-DD');
 }
 
 function getNote(id, callback) {
