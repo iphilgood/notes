@@ -2,11 +2,11 @@ const express = require('express');
 const hbs = require('express-hbs');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const MomentHandler = require('handlebars.moment');
-const moment = require('moment');
+const momentHandler = require('handlebars.moment');
+const hbsHelpers = require('./helpers/hbs_helpers');
 
 const app = express();
-MomentHandler.registerHelpers(hbs);
+momentHandler.registerHelpers(hbs);
 
 // Use `.hbs` for extensions and find partials in `views/partials`.
 app.engine('hbs', hbs.express4({
@@ -75,27 +75,4 @@ app.use(express.static(`${__dirname}/public`));
 
 app.listen(3000, () => {
   console.log('Example app listening at http://localhost:3000');
-});
-
-hbs.registerHelper('if_eq', function (a, b, opts) {
-  if (a === b) {
-    return opts.fn(this);
-  }
-  return opts.inverse(this);
-});
-
-hbs.registerHelper('times', (n, block) => {
-  let accum = '';
-  for (let i = 0; i < n; i += 1) {
-    accum += block.fn(i);
-  }
-  return accum;
-});
-
-hbs.registerHelper('has_passed', function (finishedBy, options) {
-  const isAfter = moment(finishedBy).add(1, 'day').isBefore(moment());
-  if (isAfter) {
-    return options.fn(this);
-  }
-  return options.inverse(this);
 });
