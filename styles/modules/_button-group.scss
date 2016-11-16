@@ -2,7 +2,7 @@
   display: flex;
 
   .btn {
-    flex: 0 1 130px;
+    flex: 0 1 125px;
   }
 }
 
@@ -16,8 +16,10 @@
 
 @include mq(medium) {
   .btn-group--expand {
+    flex-wrap: nowrap;
+
     .btn {
-      flex-basis: 130px;
+      flex-basis: 125px;
     }
   }
 }
