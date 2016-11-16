@@ -22,6 +22,7 @@
 @import "modules/options.scss";
 @import "modules/message.scss";
 
+// Overrides for dark version
 h1,
 .message {
   color: $color__dark;
