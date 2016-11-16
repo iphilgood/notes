@@ -3,6 +3,7 @@ const hbs = require('express-hbs');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const MomentHandler = require('handlebars.moment');
+const moment = require('moment');
 
 const app = express();
 MomentHandler.registerHelpers(hbs);
@@ -89,4 +90,12 @@ hbs.registerHelper('times', (n, block) => {
     accum += block.fn(i);
   }
   return accum;
+});
+
+hbs.registerHelper('has_passed', function (finishedBy, options) {
+  const isAfter = moment(finishedBy).add(1, 'day').isBefore(moment());
+  if (isAfter) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
 });
