@@ -19,19 +19,29 @@ You're also able to install all dependencies with `npm`. Just replace `yarn` wit
 To start the server execute the command:
 
 ```
-$ npm start
+$ yarn start
 ```
 
-## Compile the stylesheet
+## Compile the stylesheets
 
-If you're not able to see any CSS you have to compile them first with gulp. If gulp is not globally install it with:
+If you're not able to see any CSS you have to compile them first with gulp. If gulp is not globally available install it with:
 
 ```
-$ yarn add gulp -g
+$ yarn global add gulp
 ```
 
-To compile the styles just run:
+Then just run:
 
 ```
 $ gulp sass
 ```
+
+## Serve with Browsersync
+
+Browsersync is part of the local development environment. To start the static server simply run:
+
+```
+$ gulp serve
+```
+
+This task automatically works as a proxy to your node app and detects changes in your stylesheets. If you use this task, make sure your local node.js server is running.
