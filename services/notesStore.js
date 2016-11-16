@@ -31,6 +31,9 @@ function insertNote(title, description, priority, finishedBy, callback) {
 
 function updateNote(note, callback) {
   /* eslint-disable no-underscore-dangle */
+  const noteToUpdate = note;
+  const isFinished = noteToUpdate.finished !== undefined;
+  noteToUpdate.finished = isFinished;
   db.update({ _id: note._id }, note, {}, (err) => {
     if (callback) {
       callback(err);

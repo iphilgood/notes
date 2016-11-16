@@ -40,7 +40,7 @@
             <input class="checkbox" type="checkbox" id="finished" {{#if finished}}checked="checked"{{/if}} disabled>
             <label for="finished">
               <i></i>{{title}}
-              <small class="note__due-date{{#has_passed finishedBy}} alert{{/has_passed}}">Due {{moment finishedBy "fromNow" add="days" amount="1" }}</small>
+              {{#if_eq finished false}}<small class="note__due-date{{#has_passed finishedBy}} alert{{/has_passed}}">Due {{moment finishedBy "fromNow" add="days" amount="1" }}</small>{{/if_eq}}
             </label>
           </div>
 
