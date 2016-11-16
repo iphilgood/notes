@@ -7,15 +7,17 @@
     <input type="hidden" name="_id" id="_id" value="{{note._id}}" required>
     {{> inputs note=note}}
 
-    <p>
+    <div class="form__group">
       <input type="checkbox" name="finished" id="finished"
         {{#if note.finished}} value="1" checked="checked" {{else}} value="0" {{/if}}>
       <label for="finished"><i></i>Done</label>
-    </p>
+    </div>
 
-    <p class="btn-group">
-      <a class="btn btn--alert" href="/">Cancel</a>
-      <input class="btn btn--primary btn--shift-right" type="submit" value="Update" />
-    </p>
+    <div class="form__group">
+      <div class="btn-group">
+        <a class="btn btn--alert" href="/">Cancel</a>
+        <input class="btn btn--primary btn--shift-right" type="submit" value="Update" />
+      </div>
+    </div>
   </form>
 </div>

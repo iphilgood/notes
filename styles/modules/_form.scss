@@ -30,19 +30,25 @@ textarea {
   }
 }
 
+.form__group {
+  margin-bottom: 16px;
+}
+
 @include mq(medium) {
   input,
   textarea {
     width: auto;
   }
 
-  form {
-    p {
-      display: flex;
-    }
+  .form__group {
+    display: flex;
 
-    .btn-group .btn:first-child {
-      margin-left: 150px;
+    .btn-group {
+      width: 100%;
+
+      .btn:first-child {
+        margin-left: 150px;
+      }
     }
   }
 
