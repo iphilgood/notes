@@ -5,7 +5,7 @@ class Note {
     this.priority = priority;
     this.finishedBy = finishedBy;
     this.finished = false;
-    this.createDate = Date.now();
+    this.createDate = new Date();
   }
 }
 

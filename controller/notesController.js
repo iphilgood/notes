@@ -45,11 +45,12 @@ module.exports.newNote = (req, res) => {
 };
 
 module.exports.createNote = (req, res) => {
+  const finishedBy = new Date(req.body.finishedBy);
   store.add(
     req.body.title,
     req.body.description,
     req.body.priority,
-    req.body.finishedBy, (err) => {
+    finishedBy, (err) => {
       if (err) {
         console.log(err);
       }
@@ -59,6 +60,8 @@ module.exports.createNote = (req, res) => {
 
 module.exports.getNote = (req, res) => {
   store.get(req.params.id, (err, note) => {
+    const noteCopy = note;
+    noteCopy.finishedBy = moment(note.finishedBy).format('YYYY-MM-DD');
     res.format({
       'text/html': () => {
         res.render('notes/edit', { style: req.session.style, note });
@@ -68,7 +71,9 @@ module.exports.getNote = (req, res) => {
 };
 
 module.exports.editNote = (req, res) => {
-  store.update(req.body, (err) => {
+  const note = req.body;
+  note.finishedBy = new Date(note.finishedBy);
+  store.update(note, (err) => {
     if (err) {
       console.log(err);
     }

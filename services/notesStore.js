@@ -1,6 +1,5 @@
 const Note = require('../models/note.js');
 const Datastore = require('nedb');
-const moment = require('moment');
 
 const db = new Datastore({ filename: './data/notes.db', autoload: true });
 
