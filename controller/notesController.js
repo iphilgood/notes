@@ -39,7 +39,7 @@ module.exports.getNotes = (req, res) => {
 };
 
 module.exports.newNote = (req, res) => {
-  const defaultNote = { finishedBy: moment().format('MM/DD/YYYY') };
+  const defaultNote = { finishedBy: moment().format('YYYY-MM-DD') };
   res.format({
     'text/html': () => {
       res.render('notes/new', { style: req.session.style, note: defaultNote });
