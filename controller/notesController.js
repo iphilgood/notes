@@ -31,9 +31,6 @@ module.exports.getNotes = (req, res) => {
           notes,
         });
       },
-      'application/json': () => {
-        res.send(notes);
-      },
     });
   }, req.session.orderBy, req.session.order);
 };
@@ -43,9 +40,6 @@ module.exports.newNote = (req, res) => {
   res.format({
     'text/html': () => {
       res.render('notes/new', { style: req.session.style, note: defaultNote });
-    },
-    'application/json': () => {
-      res.send(defaultNote);
     },
   });
 };
@@ -68,9 +62,6 @@ module.exports.getNote = (req, res) => {
     res.format({
       'text/html': () => {
         res.render('notes/edit', { style: req.session.style, note });
-      },
-      'application/json': () => {
-        res.json(note);
       },
     });
   });
