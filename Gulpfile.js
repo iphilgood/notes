@@ -22,4 +22,4 @@ gulp.task('serve', ['sass'], () => {
 });
 
 // Default gulp Task
-gulp.task('default', ['serve']);
+gulp.task('default', ['sass']);
